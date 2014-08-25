@@ -1,0 +1,87 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+
+    <string name="app_name">taxometr</string>
+    <string name="hello_world">Hello world!</string>
+    <string name="action_settings">Settings</string>
+    <string name="titleLogin">Окно авторизации пользователя</string>
+    <string name="titleCallsign">Позывной или бортовой номер</string>
+    <string name="yes">Да</string>
+    <string name="no">Нет</string>
+    <string name="cancel">Отмена</string>
+    <string name="ok">Ок</string>    
+    <string name="password">Пароль</string> 
+    <string name="local">Монопольно</string> 
+    <string name="savePassword">(сохранить пароль и больше не спрашивать)</string>
+    <string name="tag">EMA_TAG</string>
+    <string name="warning">Внимание!</string>
+    <string name="settings">Настройки</string>
+
+    
+    <!-- блок всплывающих сообщений --> 
+    <string-array name="msg">
+	    <!-- id = 0 --> <item>Не заполнены необходимые поля</item> 
+	    <!-- id = 1 --> <item>Такого пользователя не найдено в базе данных</item> 
+	    <!-- id = 2 --> <item>Вы действительно хотите выйти?!</item>
+	    <!-- id = 3 --> <item>ничего не выбрано</item>
+	    <!-- id = 4 --> <item>Успешно</item>
+	    <!-- id = 5 --> <item>Нет прав на это действие</item>
+	    <!-- id = 6 --> <item>Этого пользователя нельзя удалить</item>
+	</string-array>
+    <!-- конец блока всплывающих сообщений --> 
+    
+        <string name="profile">Профиль пользователя</string> 
+	    <string name="startwork">Начать смену</string> 
+	    <string name="buttonSettings">Настройки</string> 
+	    <string name="buttonExitProgram">Выход</string> 
+	    <string name="drivers">Водители</string> 
+	    <string name="serverConnect">Серверы подключения</string> 
+	    <string name="mode">Режим работы</string> 
+	    <string name="polugons">Полигоны</string> 
+	    <string name="tariff">Тарифы</string> 
+	    <string name="exit">Выйти</string> 
+	    <string name="listDrivers">Список</string> 
+	    <string name="add">Добавить</string> 
+	    <string name="change">Изменить</string> 
+	    <string name="delete">Удалить</string> 
+	    <string name="serialCar">Позывной</string> 
+	    <string name="fio">Ф.И.О.</string> 
+	    <string name="titleSettingChangeDriver">Редактирование профиля водителя</string> 
+	    <string name="save">Сохранить</string> 
+	    <string name="infoDriver">Инфо водителя</string> 
+	    <string name="fName">фамилия</string> 
+	    <string name="sName">имя</string> 
+	    <string name="tName">отчество</string> 
+	    <string name="license">лицензия</string> 
+	    <string name="spd">свидетельство спд</string> 
+	    <string name="cityWork">город оказания услуг</string> 
+	    <string name="nameIDE">название диспетчерской</string> 
+	    <string name="cityIDE">город диспетчерской</string> 
+	    <string name="streetIDE">улица диспетчерской</string> 
+	    <string name="houseIDE">здание диспетчерской</string> 
+	    <string name="roomIDE">комната диспетчерской</string> 
+	    <string name="okpo">окпо диспетчерской</string> 
+	    <string name="infoServer">Инфо сервера</string> 
+	    <string name="nameServer">Название сервера</string> 
+	    <string name="ipMain">IP адрес основного серва</string> 
+	    <string name="portMain">Порт основного сервера</string> 
+	    <string name="work">Включен</string> 
+	    <string name="ipSafe">IP адрес резервного сервера</string> 
+	    <string name="portSafe">порт резервного сервера</string> 
+	    <string name="ipGPS">IP адрес GPS сервера</string> 
+	    <string name="portGPS">порт GPS сервера</string> 
+	    <string name="polygonInfo">Информация полигона</string> 
+	    <string name="namePolygon">Название полигона</string> 
+	    <string name="polygonValue">Значения полигона</string> 
+	    <string name="settingMode">Значение переменной</string> 
+	    <string name="tarif">Мой тариф</string> 
+	    <string name="posadka">Посадка</string> 
+	    <string name="minCost">Минимальный тариф</string> 
+	    <string name="kmCost">Стоимость километра</string> 
+	    <string name="minuteCostStay">Стоимость минуты простоя</string> 
+	    <string name="minKmCost">Километраж в минимальном тарифе</string> 
+	    <string name="minuteMinCost">Минут в минимальном тарифе</string> 
+	    <string name="countryCost">Загородний тариф за километры</string> 
+	    <string name="countryBackCost">Загородний тариф с возвратом</string> 
+	    <string name="minSpeed">"Минимальная скорость движения  км/час "</string>
+</resources>

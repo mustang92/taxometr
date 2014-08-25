@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="utf-8"?>
+<manifest xmlns:android="http://schemas.android.com/apk/res/android"
+    package="com.example.taxometr"
+    android:versionCode="1"
+    android:versionName="1.0" >
+
+    <uses-sdk
+        android:minSdkVersion="8"
+        android:targetSdkVersion="14" />
+
+    <application
+        android:allowBackup="true"
+        android:icon="@drawable/ic_launcher"
+        android:label="@string/app_name"
+        android:theme="@style/AppTheme" >
+        <activity
+            android:name="startActivity"
+            android:label="@string/app_name"
+            android:noHistory="true">
+            
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
+
+                <category android:name="android.intent.category.LAUNCHER" />
+            </intent-filter>
+        </activity>
+        <activity android:name="loginActivity" android:noHistory="true"></activity>
+        <activity android:name="workActivity"></activity>
+        <activity android:name="settingActivity"></activity>
+        <activity android:name="mainActivity"></activity>
+        <activity android:name="listViewActivity"></activity>
+        <activity android:name="addOrChangeListViewActivity"></activity>
+    </application>
+
+</manifest>
