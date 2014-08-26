@@ -64,15 +64,16 @@ public class dbController extends SQLiteOpenHelper implements Parcelable {
 				+"minuteCostStay varchar(20), minKmCost varchar(20), minuteMinCost varchar(20),"
 				+"countryCost varchar(20), countryBackCost varchar(20), minSpeed varchar(20));";
 		database.execSQL(query);
+		
 		String[] driverSql = {
 				"insert into driver (id, serialCar, password) values (1, 1234, 1234);",
 				"insert into tarif (userId, sitdown, minCost, kmCost, minuteCostStay, minKmCost, minuteMinCost, countryCost, countryBackCost, minSpeed) values "
-						+"(1, '100', '100', '100', '100', '100', '100', '100', '100', '100')",
+						+"(1, '100', '100', '100', '100', '100', '100', '100', '100', '100');",
 						"insert into mode (userId, name, val, work) values (1, 'Программа не будет подключаться к серверу', 'connectToServer', 'true');",
 						"insert into mode (userId, name, val, work) values (1, 'Зоны будут указываться водителем вручную', 'manualSetting', 'true');",
-						"insert into mode (userId, name, val, work) values (1, ' Показывать копейки', 'showMoney', 'true');"
+						"insert into mode (userId, name, val, work) values (1, 'Показывать копейки', 'showMoney', 'true');"
 		};
-		for(String str : driverSql) database.rawQuery(str, null);//выполняем сами запросы
+		for(String str : driverSql) database.execSQL(str);//выполняем сами запросы
 	}
 	
 	@Override
@@ -318,6 +319,17 @@ public class dbController extends SQLiteOpenHelper implements Parcelable {
 	public void delete(String type){//фунция удаления записей
 		query = "delete from "+type+" where id = "+tempId;
 		database.execSQL(query);
+		
+		if(type.equals("driver")){
+			String strArr[] = {
+				"delete from server where UserId = "+tempId,
+				"delete from mode where UserId = "+tempId,
+				"delete from polygon where UserId = "+tempId,
+				"delete from tarif where UserId = "+tempId				
+			};
+			
+			for(String str : strArr) database.execSQL(str);
+		}
 		tempId = -1;
 	}
 	
