@@ -148,6 +148,7 @@ public class dbController extends SQLiteOpenHelper implements Parcelable {
 	}
 	
 	public ArrayList<varsForAdapter> selectDriver(){//ничего особенного
+		
 		ArrayList<varsForAdapter> data = new ArrayList<varsForAdapter>();
 		varsForAdapter temp;
 		
@@ -171,18 +172,52 @@ public class dbController extends SQLiteOpenHelper implements Parcelable {
 	}
 
 	public ArrayList<varsForAdapter> select(String type){//делаем запрос из бд
+		/* возвращает массив, состоящий из классов varsForAdapter
+		 * (внутри этого класса есть еще один массив из строк, который будет заполняться
+		 * информацией из бд)
+		 * !!!такое извращение необходимо для адаптера!!!
+		 * 
+		 * например - делаем запрос 
+		 * query = "select id, serialCar, fName, sName, tName from driver;";
+		 * c = database.rawQuery(query, null);
+		 * находим первый элемент для начала перебора данных
+			if(!c.moveToFirst()) {
+				Log.w(tag, "нет ни одной записи, удовл данному запросу");
+				return data;
+			}
+			
+			do {
+				temp = new varsForAdapter();//создаем новую переменную
+				
+				for(String str : c.getColumnNames()){
+					temp.driver.add(c.getString(c.getColumnIndex(str)));
+				}
+				
+				полученная структура для нашего запроса, после этого блока будет иметь вид
+				temp.driver = {<id>, <serialCar>, <fName>, <sName>, <tName>}
+	            
+				data.add(temp);полученную переменную добавляем в переменную для возврата
+	            
+	    	} while (c.moveToNext());
+			c.close();
+		
+			return data;
+		 * 
+		 * 
+		 * 
+		 */
 		ArrayList<varsForAdapter> data = new ArrayList<varsForAdapter>();
 		varsForAdapter temp;
 		
 		switch(type){
 		case "selectAllDrivers":
-					query = "select id, serialCar, fName, sName, tName from driver;";
+			query = "select id, serialCar, fName, sName, tName from driver;";
 			break;
 		case "selectAllAboutDriver":
-					query = "select * from driver where id = "+tempId+";";
+			query = "select * from driver where id = "+tempId+";";
 			break;
 		case "selectAllServers":
-					query = "select id, nameServer, workServer from server where userId = "+userId+";";
+			query = "select id, nameServer, workServer from server where userId = "+userId+";";
 			break;
 		case "selectAllAboutServer":
 			query = "select * from server where id = "+tempId+";";
@@ -233,7 +268,21 @@ public class dbController extends SQLiteOpenHelper implements Parcelable {
 	}
 	
 	public void update(String type, ArrayList<String> strArr){//фунция обновления информации
-		
+		/*
+		 * для обновления информации о каком-либо типе данных принимает массив из данных (строк)
+		 * этот массив формируется и сортируется еще до отправки в эту функцию таким образом, чтобы
+		 * соответствовать структуре бд необходимого типа данных. 
+		 * 
+		 * например, структура бд mode следующая
+		 * поля : id, userId, name, val, work
+		 * 
+		 * поэтому массив будет формироваться следующим образом:
+		 * <массив> = {name, val, work } - эти данные будут обновляться
+		 * поле id узнаем из переменной tempId, которую установили из вызываемой формы
+		 * поле userId узнаем из переменной userId, которая устанавливается при авторизации пользователя
+		 * 
+		 * поэтому при переборе мы опускаем эти поля id, userId.
+		 */
 		//Log.w(tag, "type = "+strArr.size());
 		switch(type){
 		case "driver":
@@ -273,6 +322,9 @@ public class dbController extends SQLiteOpenHelper implements Parcelable {
 	}
 	
 	public void insert(String type, ArrayList<String> strArr){
+		/*
+		 * массив данных формируется таким же образом, как и для функции update() см. выше
+		 */
 		String val= "", key = "";
 		
 		switch(type){

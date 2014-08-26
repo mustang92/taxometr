@@ -145,7 +145,7 @@ public class listViewActivity extends Activity implements OnClickListener, messa
 	private void selectType(){
 		switch(typeListView){
 		case "driver":
-			        adapter = new adapter(this, form.db.select("selectAllDrivers"), typeListView);
+			     adapter = new adapter(this, form.db.select("selectAllDrivers"), typeListView);
 			break;
 		case "server":
 					adapter = new adapter(this, form.db.select("selectAllServers"), typeListView);

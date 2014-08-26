@@ -59,18 +59,22 @@ public class adapter extends BaseAdapter {
         switch(typeAdapter){
         case "driver":
 		            if(convertView==null){
-		                vi = inflater.inflate(R.layout.item_list_view, null);
+		                vi = inflater.inflate(R.layout.item_list_view, null);//выбираем layout для парсинга
 		                holder = new ViewHolder();
-		                holder.serialCar = (TextView) vi.findViewById(R.id.serialCar);
-		                holder.fio = (TextView) vi.findViewById(R.id.fio);
-		                holder.driverId = (TextView) vi.findViewById(R.id.textView2);
+		                holder.serialCar = (TextView) vi.findViewById(R.id.serialCar);//находим текстовое поле по идентификатору
+		                holder.fio = (TextView) vi.findViewById(R.id.fio);//находим текстовое поле по идентификатору
+		                holder.driverId = (TextView) vi.findViewById(R.id.textView2);//находим текстовое поле по идентификатору
 		                vi.setTag( holder );
 		            }
 		            else holder=(ViewHolder) vi.getTag();
 		            
+		            //берет один элемент из набора данных бд, который вернул котроллер бд
 		            tempValues = (varsForAdapter) data.get( position );
+		            //устанавливаем текстовому полю serialCar значение элемента driver.get(1) (позывной)
 		            holder.serialCar.setText( tempValues.driver.get(1) );
+		          //устанавливаем текстовому полю serialCar значение элемента (фио), формируется из трех элементов
 		            holder.fio.setText( tempValues.driver.get(2)+" "+tempValues.driver.get(3)+" "+tempValues.driver.get(4));
+		            //для скрытого элемента устанавливаем значение элемента (id)
 		            holder.driverId.setText( tempValues.driver.get(0));
         	break;
         case "server":
